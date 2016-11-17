@@ -1,5 +1,5 @@
 {
-    "name": "hexpa/http-api-helper",
+    "name": "hexpang/http-api-helper",
     "description": "Http API Helper(self use)",
     "type": "library",
     "require": {
