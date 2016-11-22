@@ -3,7 +3,7 @@
     "description": "Http API Helper(self use)",
     "type": "library",
     "require": {
-        "php": "^5.5",
+        "php": "*",
         "phpunit/phpunit": "^5.0"
     },
     "license": "MIT",
