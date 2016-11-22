@@ -19,6 +19,7 @@ class Helper{
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
         $output = curl_exec($ch);
         curl_close($ch);
+        $output = json_decode($output,true);
         return $output;
     }
 
@@ -34,6 +35,7 @@ class Helper{
         //释放curl句柄
         curl_close($ch);
         //打印获得的数据
+        $output = json_decode($output,true);
         return $output;
     }
 }
