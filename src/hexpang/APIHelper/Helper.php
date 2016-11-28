@@ -6,6 +6,7 @@ namespace hexpang\APIHelper;
 
 class Helper{
     var $baseUrl;
+    var $error;
     public function __construct($baseurl)
     {
         $this->baseUrl = $baseurl;
@@ -18,6 +19,9 @@ class Helper{
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
         $output = curl_exec($ch);
+        if($output === false){
+            $this->error = curl_error($ch);
+        }
         curl_close($ch);
         $output = json_decode($output,true);
         return $output;
@@ -32,6 +36,9 @@ class Helper{
         curl_setopt($ch, CURLOPT_HEADER, 0);
         //执行并获取HTML文档内容
         $output = curl_exec($ch);
+        if($output === false){
+            $this->error = curl_error($ch);
+        }
         //释放curl句柄
         curl_close($ch);
         //打印获得的数据
