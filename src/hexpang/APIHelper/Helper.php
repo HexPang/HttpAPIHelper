@@ -18,6 +18,7 @@ class Helper{
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+        curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,false);
         $output = curl_exec($ch);
         if($output === false){
             $this->error = curl_error($ch);
@@ -34,6 +35,7 @@ class Helper{
         curl_setopt($ch, CURLOPT_URL, $this->baseUrl . $path);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,false);
         //执行并获取HTML文档内容
         $output = curl_exec($ch);
         if($output === false){
