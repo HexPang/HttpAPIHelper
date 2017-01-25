@@ -7,11 +7,17 @@ namespace hexpang\APIHelper;
 class Helper{
     var $baseUrl;
     var $error;
+    private static $_instance = null;
     public function __construct($baseurl)
     {
         $this->baseUrl = $baseurl;
     }
-
+    public static function SharedDefaults($url){
+        if(!Helper::$_instance){
+            Helper::$_instance = new Helper($url);
+        }
+        return Helper::$_instance;
+    }
     public function Post($path,$post_data){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->baseUrl . $path);
