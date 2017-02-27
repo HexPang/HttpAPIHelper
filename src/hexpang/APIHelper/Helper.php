@@ -20,9 +20,10 @@ class Helper{
     }
     public function Post($path,$post_data){
         $ch = curl_init();
-        if(is_array($post_data)){
-            $post_data = http_build_query($post_data);
-        }
+        //This might throw error
+        //if(is_array($post_data)){
+        //    $post_data = http_build_query($post_data);
+        //}
         curl_setopt($ch, CURLOPT_URL, $this->baseUrl . $path);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_POST, 1);
